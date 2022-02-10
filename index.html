@@ -15,6 +15,27 @@
 
         <!-- https://vuejs.org/v2/guide/index.html -->
         <div id="app">
+
+            <div class="jumbotron">
+                <h1 class="display-4" id="title">{{ col.collection.com}}</h1>
+            </div>
+
+            <div class="card-group">
+                <div class="card" style="width: 20rem;" v-for="item in col.collection.items"></div>            
+                    <div class="card-body" v-for="peli in item.data">
+                        <dl>
+                            <dt class="card-title">
+                                {{peli.prompt}}
+                            </dt>
+                            <dd>
+                                {{peli.value}}
+                            </dd>
+                        </dl>
+                    </div>
+                    <a v-bind:href="item.href" class="btn btn-primary">Ver</a>
+            </div>
+
+
             <!--
                  TODO: Mostrar datos del objeto collection. Ver archivo ./js/script.js
                - Cargar la librería de VueJS y el script ./js/script.js al final de la etiqueta <body>
